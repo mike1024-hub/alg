@@ -1,0 +1,35 @@
+# 此配置信息，为"电机、减速机工作时长统计"的配置文件，主要为mqtt通讯接口的配置
+# 同步接受驱动组数据信号，并对电机、减速机的扭矩数据进行接收、处理、发布
+# 如果需要修改mqtt接口信息，请在此文件中进行修改。
+
+# code producer
+version: '1.0'
+complete_time: '2024.12.20'
+code_complete: 'wangh'
+contact_email: '19801355105@163.com'
+
+# 接收到的话题信息，以及plc的工作时间采集周期，即电机、减速机扭矩这种plc信号是隔多久进行采集的
+signal_motor: '0701'              # 确保话题接收的是驱动组-电机扭矩信号
+signal_reducer: 'reducerTorque'            # 确保话题接收的是驱动组-减速机扭矩信号
+driver_num: 16                     # 驱动组电机和减速机的数量,需要这个数>=实际驱动电机、减速机数量
+data_interval: 3                   # plc信号的采集间隔，即是多久采集一次plc信号，3s或5s，此单位为s
+threshold_for_working: 100           # 判断电机、减速机是工作状态的扭矩阈值，只有大于3时，才会认识当前电机、减速机是工作状态，非停机状态，同时开始统计其工作时长。
+threshold_for_vis: 500              # 对扭矩工作时长统计的可视化，只显示超过多少数的值
+gear_ratio_high: 29.545                      # 电机到减速机的传动比，含有两个模式，高速-低速，此为高速时的传动比
+gear_ratio_low: 55.486                      # 此为低速模式下的传动比
+switch_flag: 1                        # 对应减速机低速、高速模式是手动切换的场景： 0 → 高速，1→低速，默认为低速
+
+# mqtt的配置文件
+mqtt_config:                         # mqtt的通讯id未设置，自行生成
+  id: driver_worktime1
+  host: "192.168.30.101"                  # mqtt服务器地址
+  port: 18883                         # 连接端口
+  keepalive: 6000
+  sub_topic: 'crec/data/realTime/002001'       # 订阅话题，从此话题获取驱动组电机振动值
+
+#  sub_tbm_toic: 'crec/data/realTime/driverBox'         # 此话题为接收掘进机刀盘扭矩等工作数据，用以判断当前工作状态
+  pub_topic_reducer: 'crec/computing/realTime/driverGroup/reducerWorktimeStatis'                 # 发布话题，
+  pub_topic_motor: 'crec/computing/realTime/driverGroup/motorWorktimeStatis'                 # 发布话题，
+  login_flag: False                        # 是否设置登录名和登录密码，如果设置，需要改为“True”，如果不设置，则为“False”
+  login_name : admin                               # 登录名设置
+  password: admin123                               # 登录密码

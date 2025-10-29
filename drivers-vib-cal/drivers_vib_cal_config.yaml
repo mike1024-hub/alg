@@ -1,0 +1,53 @@
+# 此配置信息，为驱动组电机、减速机、驱动箱等振动统计量计算程序的配置文件，主要为mqtt通讯接口的配置
+# 如果需要修改mqtt接口信息，请在此文件中进行修改。
+
+# version: '1.0'
+# complete_time: '2024.12.13'
+# code_complete: 'wangh'
+# contact_email: '19801355105@163.com'
+
+work_status_enabled:
+  False # 是否开启掘进工作状态判断，True→开启，基于刀盘转速、刀盘扭矩、推进速度、推进力判断，停机/上升/下降段算法不工作
+  # False→关闭，接收实时数据，方便调试
+tunneling_status_config:
+  main_driver_key: '01'
+  cutter_haed_torque_key: '0401'
+  cutter_head_speed_key: '0501'
+  total_thrust_key: '0201'
+  thrust_speed_key: '0101'
+
+# 驱动组电机振动处理的配置
+motor_vib_config:
+  signal_motor: '02' # 接收到的电机振动的key值，确保话题接收的是驱动组电机振动信号
+  motor_num: 16 # 驱动组电机的数量，此项决定了本地数据库建表的数量，请确认此数量>=实际mqtt的电机数量
+  motor_hist_num: 30 # 电机振动直方图的数量设置，默认取40
+
+# 驱动组减速机振动处理的配置
+reducer_vib_config:
+  signal_reducer: '02'
+  reducer_num: 16
+  reducer_hist_num: 30
+
+# 驱动组测点振动处理的配置
+driver_box_vib_config:
+  signal_driver_box: '02'
+  driver_box_points: 4 # 默认驱动箱振动测点的数量
+  driver_hist_num: 30
+
+# mqtt的配置文件
+mqtt_config: # mqtt的通讯id未设置，自行生成
+  id: motor_vib_cal1
+  host: '192.168.30.101' # mqtt服务器地址
+  port: 18883 # 连接端口
+  keepalive: 6000
+  sub_motor_topic: 'crec/data/realTime/002001'
+  sub_reducer_topic: 'crec/data/realTime/002002'
+  sub_tbm_topic: 'crec/data/realTime/002010' # 此话题为接收掘进机刀盘扭矩等工作数据，用以判断当前工作状态
+  sub_driver_box_topic: 'crec/data/realTime/002004'
+  pub_topic_motor: 'crec/computing/realTime/motorVibStatistics' # 发布电机振动统计结果话题，
+  pub_topic_reducer: 'crec/computing/realTime/reducerVibStatistics' # 发布减速机振动统计结果话题，
+  pub_topic_driver_box: 'crec/computing/realTime/driverBox/VibStatistics' # 发布驱动箱振动统计结果话题
+  pub_topic_alarm: 'crec/alarm/post' # 发布报警信息
+  login_flag: False # 是否设置登录名和登录密码，如果设置，需要改为“True”，如果不设置，则为“False”
+  login_name: admin # 登录名设置
+  password: admin123 # 登录密码

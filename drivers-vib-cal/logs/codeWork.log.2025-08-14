@@ -1,0 +1,75 @@
+2025-08-14 10:10:28,766 - INFO - 程序配置文件为：./drivers_vib_cal_config.yaml
+2025-08-14 10:10:28,769 - INFO - 开始读取yaml文件....
+2025-08-14 10:10:30,849 - ERROR - Program crashed with error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-08-14 10:10:30,854 - ERROR - Traceback (most recent call last):
+  File "d:\workspace\company-projects\alg\drivers-vib-cal\drivers_vib_cal.py", line 703, in <module>
+    client.connect(host=config.host, port=config.port, keepalive=config.keepalive)  # 订阅频道
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1435, in connect
+    return self.reconnect()
+           ~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+                 ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2025-08-14 10:13:36,466 - INFO - 程序配置文件为：./drivers_vib_cal_config.yaml
+2025-08-14 10:13:36,466 - INFO - 开始读取yaml文件....
+2025-08-14 10:13:38,516 - ERROR - Program crashed with error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-08-14 10:13:38,519 - ERROR - Traceback (most recent call last):
+  File "d:\workspace\company-projects\alg\drivers-vib-cal\drivers_vib_cal.py", line 703, in <module>
+    client.connect(host=config.host, port=config.port, keepalive=config.keepalive)  # 订阅频道
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1435, in connect
+    return self.reconnect()
+           ~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+                 ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+2025-08-14 10:50:15,064 - INFO - 程序配置文件为：./drivers_vib_cal_config.yaml
+2025-08-14 10:50:15,066 - INFO - 开始读取yaml文件....
+2025-08-14 10:50:17,138 - ERROR - Program crashed with error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-08-14 10:50:17,143 - ERROR - Traceback (most recent call last):
+  File "d:\workspace\company-projects\alg\drivers-vib-cal\drivers_vib_cal.py", line 703, in <module>
+    client.connect(host=config.host, port=config.port, keepalive=config.keepalive)  # 订阅频道
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1435, in connect
+    return self.reconnect()
+           ~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+                 ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "D:\workspace\company-projects\alg\driver-worktimes\.venv\Lib\site-packages\paho\mqtt\client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "D:\workspace\environments\python3.13\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
